@@ -1,0 +1,32 @@
+# minimal LAMMPS input file: change potential
+
+# import system setup from include file
+include inc.2atom
+
+# set non-bonded potential
+pair_style lj/cut 5.0
+pair_coeff 1 1 1.0 1.0
+
+#velocity all create 1.0 54321 mom no rot no
+
+run_style verlet
+timestep  0.005   
+
+#fix f1 all nve
+
+
+minimize 1.0e-10 1.0e-10 100 1000
+write_data LJoptimized.data
+
+thermo 10         # thermo output every 10 steps
+
+#run 100 post no
+
+# continue run with different potential
+pair_style morse 5.0
+pair_coeff 1 1 1.0 5.0 1.12
+
+minimize 1.0e-10 1.0e-10 0 0
+write_data MOoptimized.data
+
+#run 100  # TODO: compare with lj/cut run

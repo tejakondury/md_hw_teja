@@ -1,0 +1,22 @@
+# LAMMPS script to generate a simple 2 atom system
+
+# it is good practice to make these settings explicit
+units lj
+atom_style atomic
+boundary p p p
+
+lattice sc 1.0
+
+# create simulation cell
+region r1 block -5.0 5.0 -5.0 5.0 -5.0 5.0
+create_box 1 r1
+
+# required must come after box is created
+mass 1 1.0
+
+varaible a equal $i
+
+# create two atoms, 
+create_atoms 1 single  0.0 0.0 0.0
+create_atoms 1 single  a 0.0 0.0
+
