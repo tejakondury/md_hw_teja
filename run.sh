@@ -1,12 +1,11 @@
-#!/usr/bin/bash
+#!/bin/bash
+
+for num in {1..30..1}
+do 
+  i=`echo "scale=2 ; ${num}/10" | bc`  # convert into floating point values
 
 
-for i in {1..5..1}
-do
-
-
-
-#################################################input_file###########################################################
+############################################input_file###########################################################
 cat >in.run$i <<!
 
 units lj
@@ -57,7 +56,7 @@ timestep  0.005
 
 
 
-minimize 1.0e-10 1.0e-10 100 1000
+minimize 1.0e-10 1.0e-10 0 0
 
 write_data LJoptimized$i.data
 !
@@ -94,34 +93,30 @@ cat >lammps$i.job <<!
 
 ### Specify "wallclock time" required for this job, hhh:mm:ss
 
-#PBS -l walltime=1:00:00
+#PBS -l walltime=00:15:00
 
 ### Specify total cpu time required for this job, hhh:mm:ss
 
 ### total cputime = walltime * ncpus
 
-#PBS -l cput=1:00:00
+#PBS -l cput=00:15:00
 
 
 
 
 ### cd: set directory for job execution, ~netid = home directory path
 
-cd $PBS_O_WORKDIR
+cd /extra/tejakondury/MSE551/Lab1/ex1/md_hw_teja
 
 ### Load required modules/libraries
 
 module load lammps/gcc/17Nov16 
 
-export MPI_DSM_DISTRIBUTE
+#export MPI_DSM_DISTRIBUTE
 
-export OMP_NUM_THREADS 1
+#export OMP_NUM_THREADS 1
 
 mpirun -np 1 lmp_mpi-gcc -sf opt < in.run$i > out.run$i
-
-#remove system output files
-#rm *.e*
-#rm *.o*
 
 !
 #################################################End_Run_job###############################################################
