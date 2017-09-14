@@ -1,0 +1,66 @@
+LAMMPS (17 Nov 2016)
+Lattice spacing in x,y,z = 4 4 4
+Created orthogonal box = (0 0 0) to (4 4 4)
+  1 by 1 by 1 MPI processor grid
+Lattice spacing in x,y,z = 4 4 4
+Created 4 atoms
+Replicating atoms ...
+  orthogonal box = (0 0 0) to (4 4 4)
+  1 by 1 by 1 MPI processor grid
+  4 atoms
+Reading potential file AlCu.eam.alloy with DATE: 2008-10-01
+WARNING: Resetting reneighboring criteria during minimization (../min.cpp:168)
+Neighbor list info ...
+  1 neighbor list requests
+  update every 1 steps, delay 0 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 8.6825
+  ghost atom cutoff = 8.6825
+  binsize = 4.34125, bins = 1 1 1
+Setting up cg style minimization ...
+  Unit style    : metal
+Memory usage per processor = 3.90684 Mbytes
+Step PotEng Lx Ly Lz Press Pxx Pyy Pzz c_eatoms 
+       0    -13.25036            4            4            4    31455.725    31455.725    31455.725    31455.725    -13.25036 
+      10   -13.272423         4.04         4.04         4.04     5698.724     5698.724     5698.724     5698.724   -13.272423 
+      17   -13.273269    4.0497635    4.0497635    4.0497635 1.3488027e-10 1.3833821e-10 1.3691545e-10 1.2938714e-10   -13.273269 
+Loop time of 0.00171399 on 1 procs for 17 steps with 4 atoms
+
+58.3% CPU use with 1 MPI tasks x no OpenMP threads
+
+Minimization stats:
+  Stopping criterion = energy tolerance
+  Energy initial, next-to-last, final = 
+        -13.2503597474     -13.2732688882     -13.2732688882
+  Force two-norm initial, final = 3.76956 1.65687e-14
+  Force max component initial, final = 3.76956 1.65683e-14
+  Final line search alpha, max atom move = 1 1.65683e-14
+  Iterations, force evaluations = 17 22
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.00094628 | 0.00094628 | 0.00094628 |   0.0 | 55.21
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0.00017285 | 0.00017285 | 0.00017285 |   0.0 | 10.08
+Output  | 3.0994e-05 | 3.0994e-05 | 3.0994e-05 |   0.0 |  1.81
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 0.0005639  |            |       | 32.90
+
+Nlocal:    4 ave 4 max 4 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:    662 ave 662 max 662 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:    352 ave 352 max 352 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 352
+Ave neighs/atom = 88
+Neighbor list builds = 0
+Dangerous builds = 0
+Total energy (eV) = -13.2732688881861;
+Number of atoms = 4;
+Lattice constant (Angstoms) = 4.04976352616037;
+Cohesive energy (eV) = -3.31831722204653;
+All done!
+Total wall time: 0:00:00

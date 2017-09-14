@@ -1,0 +1,14 @@
+For an FCC structure:
+Lattice constant (Angstoms) = 4.04976352616037;
+Cohesive energy (eV) = -3.31831722204653;
+
+For a BCC structure:
+Lattice constant (Angstoms) = 3.21911196328926;
+Cohesive energy (eV) = -3.30161839041887;
+
+For a SC structure:
+Lattice constant (Angstoms) = 2.68705318650982;
+Cohesive energy (eV) = -3.06265447774071;
+
+So as we can observe the FCC structure has the lowest possible energy. Hence Al is more stable as FCC structure.
+
