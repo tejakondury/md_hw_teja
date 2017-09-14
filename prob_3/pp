@@ -1,0 +1,3 @@
+set xlabel "Volume"
+set ylabel "Total Energy (eV)"
+plot "E-v.dat" with lines 
