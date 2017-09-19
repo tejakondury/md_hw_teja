@@ -2,11 +2,7 @@
 
 for i in {300..600..50}
 do
-# Affiliation: Dept. Materials Science and Engineering
-# University of Arizona
-# Abduljabar Alsayoud
-
-
+cat >in.run.$i<<!
 # Units energy:eV time:ps distance:angstrom flux:energy*velocity
 #---------Sim variables---------------
 variable fileprefix string  optimized.data
@@ -47,4 +43,44 @@ undump 2
 ######################################
 # SIMULATION DONE
 print "All done"
+!
+
+# Write the job files
+cat >job.$i<<!
+####### 
+### Set the job name
+#PBS -N MSE551
+### Specify the PI group for this job
+#PBS -W group_list=oiz
+### Set the queue for this job as windfall or standard (adjust ### and #)
+###PBS -q windfall
+#PBS -q standard
+### Set the number of nodes, cores and memory that will be used for this job. 
+### "pcmem=6gb" is the memory attribute for all of the standard nodes
+#PBS -l select=1:ncpus=1:mem=6gb:pcmem=6gb
+#PBS -l place=free:shared
+### Specify "wallclock time" required for this job, hhh:mm:ss
+#PBS -l walltime=00:10:00
+### Specify total cpu time required for this job, hhh:mm:ss
+### total cputime = walltime * ncpus
+#PBS -l cput=00:10:00
+
+
+### cd: set directory for job execution, ~netid = home directory path
+cd /extra/tejakondury/MSE551/hw3
+
+### Load required modules/libraries
+module load lammps/gcc/17Nov16 
+
+#setenv MPI_DSM_DISTRIBUTE
+#setenv OMP_NUM_THREADS 1
+
+### run your executable program 
+mpirun -np 1 lmp_mpi-gcc -sf opt < in.run.$i > out.run.$i
+!  # EOF
+
+### submit the job
+
+qsub job.$i
+
 
