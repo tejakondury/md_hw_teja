@@ -13,6 +13,7 @@ done
 awk '!($2=$3=$4=$5=$6=$8=$9="")' summary.dat > potential.dat
 
 # Use gnuplot to plot the data
+# Please turn on X11 forwarding to see the plot
 
 gnuplot -persist pp   # pp has the parameters for the plot
  
