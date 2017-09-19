@@ -1,0 +1,41 @@
+
+# Units energy:eV time:ps distance:angstrom flux:energy*velocity
+#---------Sim variables---------------
+variable fileprefix string  optimized.data
+#variable temp_s equal '300.0'
+variable press_s equal '1.0'
+log log.
+
+#-----------Setup----------------------
+units metal            #Energy = eV , Distance= Angstroms
+dimension 3
+boundary p p p         #Periodic boundary conditions 
+atom_style atomic
+
+# Read config files
+
+read_data optimized.data
+replicate 10 10 10
+
+pair_style eam/alloy 
+pair_coeff * *  Al99.eam.alloy Al
+neighbor 2.0 bin 
+neigh_modify delay 10 check yes 
+
+
+#--------- NPT-------                                                                                                         
+reset_timestep 0
+timestep 0.001
+
+thermo 1000
+thermo_style custom step pe ke etotal enthalpy temp vol press
+velocity all create 300 1518772 
+fix 1 all npt temp 300 300 0.5 iso 0 0 5 
+dump 2 all atom 2000 dump.npt.optimized.300
+run 60000
+unfix 1
+undump 2
+
+######################################
+# SIMULATION DONE
+print "All done"
