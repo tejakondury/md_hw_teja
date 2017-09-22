@@ -1,32 +1,56 @@
+
 #!/bin/bash
 
 ### Set the job name
+
 #PBS -N MSE551
+
 ### Specify the PI group for this job
+
 #PBS -W group_list=oiz
+
 ### Set the queue for this job as windfall or standard (adjust ### and #)
+
 ###PBS -q windfall
+
 #PBS -q standard
+
 ### Set the number of nodes, cores and memory that will be used for this job. 
+
 ### "pcmem=6gb" is the memory attribute for all of the standard nodes
+
 #PBS -l select=1:ncpus=1:mem=6gb:pcmem=6gb
+
 #PBS -l place=free:shared
+
 ### Specify "wallclock time" required for this job, hhh:mm:ss
-#PBS -l walltime=00:10:00
+
+#PBS -l walltime=00:15:00
+
 ### Specify total cpu time required for this job, hhh:mm:ss
+
 ### total cputime = walltime * ncpus
-#PBS -l cput=00:10:00
+
+#PBS -l cput=00:15:00
+
+
 
 
 ### cd: set directory for job execution, ~netid = home directory path
-cd /extra/tejakondury/MSE551/hw3
+
+cd /extra/tejakondury/MSE551/Lab1/ex1/md_hw_teja
 
 ### Load required modules/libraries
+
 module load lammps/gcc/17Nov16 
 
-#setenv MPI_DSM_DISTRIBUTE
-#setenv OMP_NUM_THREADS 1
+#export MPI_DSM_DISTRIBUTE
 
-### run your executable program 
-mpirun -np 1 lmp_mpi-gcc -sf opt < in.run > out.run.250
+#export OMP_NUM_THREADS 1
+
+mpirun -np 1 lmp_mpi-gcc -sf opt < in.run.80 > out.run.80
+
+#remove system output files
+#rm *.e*
+#rm *.o*
 
