@@ -19,7 +19,7 @@ atom_style atomic
 # Read config files
 
 read_data ${fileprefix}
-replicate 3 3 3
+replicate 10 10 10
 
 pair_style eam/alloy 
 pair_coeff * *  Al99.eam.alloy Al
