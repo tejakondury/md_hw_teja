@@ -28,5 +28,5 @@ module load lammps/gcc/17Nov16
 #setenv OMP_NUM_THREADS 1
 
 ### run your executable program 
-mpirun -np 1 lmp_mpi-gcc -sf opt < in.run > out.run
+mpirun -np 1 lmp_mpi-gcc -sf opt < in.run > out.run.250
 

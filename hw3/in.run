@@ -6,7 +6,7 @@
 # Units energy:eV time:ps distance:angstrom flux:energy*velocity
 #---------Sim variables---------------
 variable fileprefix string  optimized.data
-variable temp_s equal '300.0'
+variable temp_s equal '250.0'
 variable press_s equal '1.0'
 log log.${fileprefix}
 

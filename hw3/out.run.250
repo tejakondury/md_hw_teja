@@ -1,54 +1,26 @@
-
-#-----------Setup----------------------
-units metal            #Energy = eV , Distance= Angstroms
-dimension 3
-boundary p p p         #Periodic boundary conditions
-atom_style atomic
-
-# Read config files
-
-read_data ${fileprefix}
-read_data optimized.data
+LAMMPS (17 Nov 2016)
+Reading data file ...
   orthogonal box = (-0.0248818 -0.0248818 -0.0248818) to (4.02488 4.02488 4.02488)
   1 by 1 by 1 MPI processor grid
   reading atoms ...
   4 atoms
   reading velocities ...
   4 velocities
-replicate 3 3 3
+Replicating atoms ...
   orthogonal box = (-0.0248818 -0.0248818 -0.0248818) to (12.1244 12.1244 12.1244)
   1 by 1 by 1 MPI processor grid
   108 atoms
-
-pair_style eam/alloy
-pair_coeff * *  Al99.eam.alloy Al
-neighbor 2.0 bin
-neigh_modify delay 10 check yes
-
-
-#--------- NPT-------
-reset_timestep 0
-timestep 0.001
-
-thermo 1000
-thermo_style custom step pe ke etotal enthalpy temp vol press
-velocity all create ${temp_s} 1518772
-velocity all create 250 1518772
-fix 1 all npt temp ${temp_s} ${temp_s} 0.5 iso ${press_s} ${press_s} 5
-fix 1 all npt temp 250 ${temp_s} 0.5 iso ${press_s} ${press_s} 5
-fix 1 all npt temp 250 250 0.5 iso ${press_s} ${press_s} 5
-fix 1 all npt temp 250 250 0.5 iso 1 ${press_s} 5
-fix 1 all npt temp 250 250 0.5 iso 1 1 5
-dump 2 all atom 2000 dump.npt${fileprefix}
-dump 2 all atom 2000 dump.nptoptimized.data
-run 60000
 Neighbor list info ...
   1 neighbor list requests
   update every 1 steps, delay 10 steps, check yes
   max neighbors/atom: 2000, page size: 100000
   master list distance cutoff = 8.28721
   ghost atom cutoff = 8.28721
-  binsize = 4.1436 -> bins = 3 3 3
+  binsize = 4.1436, bins = 3 3 3
+Setting up Verlet run ...
+  Unit style    : metal
+  Current step  : 0
+  Time step     : 0.001
 Memory usage per processor = 3.67723 Mbytes
 Step PotEng KinEng TotEng Enthalpy Temp Volume Press 
        0   -362.87998    3.4577089   -359.42228   -356.95926          250    1793.2992    2200.5147 
@@ -138,11 +110,5 @@ Total # of neighbors = 7560
 Ave neighs/atom = 70
 Neighbor list builds = 0
 Dangerous builds = 0
-unfix 1
-undump 2
-
-######################################
-# SIMULATION DONE
-print "All done"
 All done
 Total wall time: 0:00:18
