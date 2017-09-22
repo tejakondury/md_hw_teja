@@ -1,28 +1,3 @@
-LAMMPS (17 Nov 2016)
-Reading data file ...
-  orthogonal box = (-0.0248818 -0.0248818 -0.0248818) to (4.02488 4.02488 4.02488)
-  1 by 1 by 1 MPI processor grid
-  reading atoms ...
-  4 atoms
-  reading velocities ...
-  4 velocities
-Replicating atoms ...
-  orthogonal box = (-0.0248818 -0.0248818 -0.0248818) to (40.4728 40.4728 40.4728)
-  1 by 1 by 1 MPI processor grid
-  4000 atoms
-Neighbor list info ...
-  1 neighbor list requests
-  update every 1 steps, delay 10 steps, check yes
-  max neighbors/atom: 2000, page size: 100000
-  master list distance cutoff = 8.28721
-  ghost atom cutoff = 8.28721
-  binsize = 4.1436, bins = 10 10 10
-Setting up Verlet run ...
-  Unit style    : metal
-  Current step  : 0
-  Time step     : 0.001
-Memory usage per processor = 4.09116 Mbytes
-Step PotEng KinEng TotEng Enthalpy Temp Volume Press 
        0   -13439.999    129.22783   -13310.772   -13218.773          250    66418.489    2219.2424 
     1000   -13366.486    81.330535   -13285.156   -13177.381    157.33943    66545.096    2594.8463 
     2000   -13346.826    100.07902   -13246.747   -13209.144    193.60965    66772.947    902.26557 
@@ -80,6 +55,3 @@ Step PotEng KinEng TotEng Enthalpy Temp Volume Press
    54000   -13309.168    129.45642   -13179.712   -13175.417    250.44223    67021.383    102.67485 
    55000   -13310.968    132.38751   -13178.581   -13187.904    256.11261    67056.218   -222.75213 
    56000     -13314.2    131.04345   -13183.156   -13212.013    253.51245    67077.268    -689.2605 
---------------------------------------------------------------------------
-mpirun noticed that process rank 0 with PID 0 on node i0n22.ib.cluste exited on signal 9 (Killed).
---------------------------------------------------------------------------

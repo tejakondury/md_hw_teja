@@ -1,22 +1,3 @@
-LAMMPS (17 Nov 2016)
-Reading data file ...
-  orthogonal box = (-0.09995 -0.09995 -0.09995) to (40.5478 40.5478 40.5478)
-  1 by 1 by 5 MPI processor grid
-  reading atoms ...
-  4000 atoms
-Neighbor list info ...
-  1 neighbor list requests
-  update every 1 steps, delay 10 steps, check yes
-  max neighbors/atom: 2000, page size: 100000
-  master list distance cutoff = 8.28721
-  ghost atom cutoff = 8.28721
-  binsize = 4.1436, bins = 10 10 10
-Setting up Verlet run ...
-  Unit style    : metal
-  Current step  : 0
-  Time step     : 0.001
-Memory usage per processor = 3.8835 Mbytes
-Step PotEng KinEng TotEng Enthalpy Temp Volume Press 
        0   -13285.092    180.91896   -13104.173   -13079.273          350    67159.926    594.03729 
     1000   -13266.085    177.21286   -13088.872   -13023.994    342.83029    67159.926    1547.7394 
     2000   -13260.758    184.89385   -13075.864   -12992.273     357.6897    67159.926    1994.1641 
@@ -78,31 +59,3 @@ Step PotEng KinEng TotEng Enthalpy Temp Volume Press
    58000   -13259.218    185.71159   -13073.506   -12985.533    359.27166    67159.926    2098.6954 
    59000   -13262.689    181.46544   -13081.223   -13004.758     351.0572    67159.926    1824.1635 
    60000   -13262.165    182.69104   -13079.474   -12998.677    353.42821    67159.926    1927.4903 
-Loop time of 147.541 on 5 procs for 60000 steps with 4000 atoms
-
-Performance: 35.136 ns/day, 0.683 hours/ns, 406.667 timesteps/s
-99.9% CPU use with 5 MPI tasks x no OpenMP threads
-
-MPI task timing breakdown:
-Section |  min time  |  avg time  |  max time  |%varavg| %total
----------------------------------------------------------------
-Pair    | 131.59     | 133.96     | 138.09     |  19.6 | 90.79
-Neigh   | 0          | 0          | 0          |   0.0 |  0.00
-Comm    | 7.5524     | 11.531     | 14.005     |  65.3 |  7.82
-Output  | 0.026272   | 0.026338   | 0.026525   |   0.1 |  0.02
-Modify  | 1.2151     | 1.3378     | 1.4219     |   8.3 |  0.91
-Other   |            | 0.6909     |            |       |  0.47
-
-Nlocal:    800 ave 809 max 789 min
-Histogram: 1 0 1 0 0 0 1 0 0 2
-Nghost:    4585 ave 4600 max 4569 min
-Histogram: 1 0 0 0 2 0 1 0 0 1
-Neighs:    55791.2 ave 57884 max 54830 min
-Histogram: 2 1 0 1 0 0 0 0 0 1
-
-Total # of neighbors = 278956
-Ave neighs/atom = 69.739
-Neighbor list builds = 0
-Dangerous builds = 0
-All done
-Total wall time: 0:02:27
