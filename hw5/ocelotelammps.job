@@ -19,7 +19,7 @@
 
 
 ### cd: set directory for job execution, ~netid = home directory path
-cd /extra/tejakondury/MSE551/hw3/prob3
+cd /extra/tejakondury/MSE551/md_hw_teja/hw5
 
 ### Load required modules/libraries
 module load lammps/gcc/17Nov16 
@@ -28,5 +28,5 @@ export MPI_DSM_DISTRIBUTE
 export OMP_NUM_THREADS 1
 
 ### run your executable program 
-mpirun -np 5 lmp_mpi-gcc -sf opt < in.run.nve > out.run.nve
+mpirun -np 5 lmp_mpi-gcc -sf opt < in.heatflux > out.heatflux
 
