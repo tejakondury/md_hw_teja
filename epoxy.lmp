@@ -1,16 +1,44 @@
-
-# Title
-Simulation of an epoxy monomer
+#Simulation of an epoxy monomer
 
 # Intialization
 units          real
-dimension      3d
+dimension      3
 boundary       p p p
-atom_style     atomic
+atom_style     angle
 
 # Atom Definition
 read_data      epoxy.lmpdat
 replicate      1 1 1
+
+bond_style harmonic
+bond_coeff 1 469.0 1.400  # CA-CA
+bond_coeff 2 570.0 1.229 # C-O
+bond_coeff 3 317.0 1.522 # C-C
+bond_coeff 4 469.0 1.409 # C-CA
+bond_coeff 5 340.0 1.090 # C-H
+
+angle_style harmonic
+angle_coeff 1 63.0 120.0
+angle_coeff 2 35.0 120.0
+angle_coeff 3 63.0 120.0
+angle_coeff 4 60.0 109.50
+angle_coeff 5 50.0 109.50
+angle_coeff 6 50.0 109.50
+angle_coeff 7 80.0 120.40
+angle_coeff 8 35.0 109.50
+angle_coeff 9 63.0 120.0
+angle_coeff 10 63.0 114.0
+angle_coeff 11 40.0 109.50
+
+dihedral_style zero
+
+pair_style lj/cut 2.5
+pair_coeff 1 2 254.632 2.2344
+pair_coeff 1 3 43540 3.1998
+pair_coeff 1 4 60298 3.3997
+pair_coeff 2 3 127.7367 2.0345
+pair_coeff 2 4 254.6324 2.2344
+pair_coeff 3 4 43540 3.1998
 
 # Settings
 velocity       all create 298.15 4928459 rot yes mom yes dist gaussian
