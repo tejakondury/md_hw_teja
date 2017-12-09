@@ -60,9 +60,8 @@ timestep       2.0
 thermo_style   one
 thermo         50
 
-# Run the simulation
-run            500
 
 #dump 
 dump 1 all atom 100 relax.atom
-undump 1
+
+run 500
